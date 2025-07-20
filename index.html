@@ -140,6 +140,30 @@
             background-color: rgba(255, 255, 255, 0.0);
           }
         }
+        /* 为滚动条整体设置样式 */
+        ::-webkit-scrollbar {
+          width: 5px;
+          height: 10px;
+        }
+
+        /* 为滚动条的轨道设置样式 */
+        ::-webkit-scrollbar-track {
+          background: rgba(#101F1C, 0.1);
+          border-radius: 2em;
+        }
+
+        /* 为滚动条的滑块设置样式 */
+        ::-webkit-scrollbar-thumb {
+          background-color: rgba(144,147,153,0.5);
+          border-radius: 2em;
+          transition: background-color .3s;
+          cursor: pointer;
+        }
+
+        /* 当鼠标悬停在滑块上时改变滑块的颜色 */
+        ::-webkit-scrollbar-thumb:hover {
+          background-color: rgba(144,147,153,.3);
+        }
     </style>
 </head>
 <body>
