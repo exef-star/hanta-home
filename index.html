@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ℋℴ𝓂ℯ | ℋ𝒶𝓃𝓉𝒶</title>
-    <link rel="icon" type="image/png" href="https://i.p-i.vip/68/20250607-6843ba6a61647.png">
     <link rel="stylesheet" href="https://fontsapi.zeoseven.com/292/main/result.css">
     <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://at.alicdn.com/t/c/font_4979364_d45pscvlqs.js"></script>
@@ -15,8 +14,6 @@
             font-family: "LXGW WenKai";
         }
         body {
-            display: flex;
-            justify-content: center;
             align-items: flex-start; /* 调整为flex-start */
             height: 100vh;
             background-image: url('https://i.p-i.vip/68/20250720-687c506561da7.webp'); /* 背景图片URL */
@@ -163,6 +160,28 @@
         /* 当鼠标悬停在滑块上时改变滑块的颜色 */
         ::-webkit-scrollbar-thumb:hover {
           background-color: rgba(144,147,153,.3);
+        }
+        /* 手机端适配 */
+        @media (max-width: 768px) {
+          #content, card {
+            width: 90% !important; /* 适配手机屏幕宽度，留边距 */
+            padding: 15px !important; /* 减少内边距 */
+            min-width: auto !important; /* 移除最小宽度限制 */
+          }
+  
+          h1, h2 {
+            font-size: 1.5rem; /* 缩小标题字体 */
+          }
+  
+          a {
+            display: block; /* 链接垂直排列，避免拥挤 */
+            margin: 8px 0; /* 增加链接间距 */
+          }
+  
+          .icon {
+            width: 1.5em; /* 缩小图标 */
+            height: 1.5em;
+          }
         }
     </style>
 </head>
