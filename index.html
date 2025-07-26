@@ -6,10 +6,11 @@
     <title>ℋℴ𝓂ℯ | ℋ𝒶𝓃𝓉𝒶</title>
     <link rel="icon" type="image/png" href="https://i.p-i.vip/68/20250607-6843ba6a61647.png">
     <link rel="stylesheet" href="https://fontsapi.zeoseven.com/292/main/result.css">
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.onmicrosoft.cn/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://at.alicdn.com/t/c/font_4979364_d45pscvlqs.js"></script>
     <!-- APlayer 核心样式 -->
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.css">
+    <link rel="stylesheet" href="https://cdnjs.onmicrosoft.cn/ajax/libs/aplayer/1.10.1/APlayer.min.css">
+    <link rel="stylesheet" href="https://npm.onmicrosoft.cn/@waline/client@v3/dist/waline.css" />
     <style>
         * {
             font-family: "LXGW WenKai";
@@ -184,39 +185,6 @@
             height: 1.5em;
           }
         }
-        /* 下面表情和按钮那一栏的设置 */
-        #twikoo .tk-comments .tk-submit .tk-row.actions{
-          margin-bottom: 0;
-          margin-left: 0;
-        }
-        /* 个人信息和文本输入之间的空位置 */
-        .tk-main .tk-submit .tk-col .tk-meta-input,
-        #twikoo .tk-comments .tk-submit .tk-col .tk-meta-input{
-          margin-bottom: 16px;
-        }
-        /* 解决图片大小超出范围问题 */
-        .tk-main .tk-content img {
-          max-width: 100%;
-          height: auto;
-        }
-
-        /* 圆角设置 */
-        .tk-meta-input input {
-          border-top-right-radius: 12px;
-          border-bottom-right-radius: 12px;
-        }
-
-        .tk-meta-input div {
-        border-top-left-radius: 12px;
-        border-bottom-left-radius: 12px;
-        }
-
-        /* 输入框样式 */
-        .tk-input.el-textarea textarea {
-          border-radius: 10px;
-          min-height: 200px !important;
-          height: auto;
-        }
     </style>
 </head>
 <body>
@@ -246,7 +214,7 @@
         </a>
       </card>
       <div id="content">
-        <h1>loading. . .</h1>
+        <h1>Loading. . .</h1>
       </div>
       <card>
         <h2><i class="fa fa-tags"></i>&nbsp;网站列表</h2>
@@ -278,23 +246,34 @@
         <details>
           <summary>&nbsp;2025-07-26</summary>
           <ol>
-            <li>由于字节跳动的js文件出现不稳定情况，将字节跳动的源换为BootCDN源</li>
-            <li>新增评论区，使用Vercel环境，评论区样式美化</li>
+            <li><del>由于字节跳动的js文件出现不稳定情况，将字节跳动的源换为BootCDN源</del>（BootCDN存在投毒，已切换为渺软公益CDN）</li>
+            <li><del>新增评论区，使用Vercel环境，评论区样式美化</del>（因技术原因，已删除！）</li>
+            <li>新增更新日志</li>
           </ol>
         </details>
+        
       </card>
       <card>
         <h2><i class="fa fa-pencil"></i>&nbsp;评论</h2>
-        <div id="homepage"></div>
-        <script src="https://registry.npmmirror.com/twikoo/1.6.44/files/dist/twikoo.min.js"></script>
-        <script>
-          twikoo.init({
-            envId: 'https://twikoo.hanta2011.top', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-            el: '#homepage', // 容器元素
-            // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
-            path: homepage, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-            // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/twikoojs/twikoo/blob/main/src/client/utils/i18n/index.js
-          })
+        <div id="waline"></div>
+        <script type="module">
+          import { init } from 'https://npm.onmicrosoft.cn/@waline/client@v3/dist/waline.js';
+
+          init({
+            el: '#waline',
+            serverURL: 'https://waline.hanta2011.top',
+            reaction: [
+              'https://npm.onmicrosoft.cn/@waline/emojis@1.1.0/weibo/weibo_heart_eyes.png',
+              'https://npm.onmicrosoft.cn/@waline/emojis@1.1.0/weibo/weibo_dog_joy.png',
+              'https://npm.onmicrosoft.cn/@waline/emojis@1.1.0/weibo/weibo_dog_consider.png',
+              'https://npm.onmicrosoft.cn/@waline/emojis@1.1.0/weibo/weibo_sob.png',
+            ],
+
+            emoji: [
+              '//npm.onmicrosoft.cn/@waline/emojis@1.2.0/bilibili',
+              '//npm.onmicrosoft.cn/@waline/emojis@1.2.0/bmoji',
+            ],
+          });
         </script>
       </card>
       <footer>
@@ -305,8 +284,8 @@
     <button onclick="topFunction()" id="myBtn" title="回顶部"><i class="fa fa-hand-o-up" style="font-size: large;"></i></button>
 
     <!-- MetingJS 依赖 -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/meting/2.0.1/Meting.min.js"></script>
+    <script src="https://cdnjs.onmicrosoft.cn/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+    <script src="https://cdnjs.onmicrosoft.cn/ajax/libs/meting/2.0.1/Meting.min.js"></script>
 
     <div class="music-player">
       <meting-js
@@ -347,7 +326,7 @@
       };
     </script>
 
-    <script src="https://cdn.bootcdn.net/ajax/libs/marked/4.0.2/marked.min.js"></script>
+    <script src="https://cdnjs.onmicrosoft.cn/ajax/libs/marked/4.0.2/marked.min.js"></script>
     <script>
         // 外部Markdown文件的URL
         const markdownFileUrl = 'https://hub.gitmirror.com/https://raw.githubusercontent.com/exef-star/exef-star/main/README.md'; // 替换为你的Markdown文件URL
